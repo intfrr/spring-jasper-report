@@ -23,13 +23,13 @@ public class SpringBootJasperReportApplication {
     @Autowired
     private ReportService service;
 
-    @GetMapping("/getEmployees")
+    @GetMapping("/employees")
     public List<Employee> getEmployees() {
 
         return repository.findAll();
     }
 
-    @GetMapping("/report/{format}")
+    @GetMapping("/employees/report/{format}")
     public String generateReport(@PathVariable String format) throws FileNotFoundException, JRException {
         return service.exportReport(format);
     }
